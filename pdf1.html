@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>PDFObject example</title>
+    <script type="text/javascript" src="./js/pdfobject.js"></script>
+    <script type="text/javascript">
+        window.onload = function (){
+	var myPDF = new PDFObject({
+		url: "boardingDocs.pdf",
+		id: "myPDF",
+		width: "500px",
+		height: "500px",
+		pdfOpenParams: {
+			navpanes: 1,
+			statusbar: 0,
+			view: "FitH"
+			//pagemode: "thumbs"
+		}
+		}).embed("myPDF");
+        };
+  </script>
+  </head>
+       
+  <body>
+  <div id="myPDF" style="width:500;height:500"></div>
+  </body>
+</html>

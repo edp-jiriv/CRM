@@ -1,0 +1,40 @@
+<html>
+<script language="JavaScript" type="text/JavaScript" >
+function alertContents(httpRequest){
+	if (httpRequest.readyState == 4){
+		// everything is good, the response is received
+		if ((httpRequest.status == 200) || (httpRequest.status == 0)){
+			// FIXME: perhaps a better example is to *replace* some text in the page.
+			var htmlDoc=document.createElement('div'); // Create a new, empty DIV node.
+			htmlDoc.innerHTML = httpRequest.responseText; // Place the returned HTML page inside the new node.
+			alert( "The response was: " + httpRequest.status + httpRequest.responseText);
+		}else{
+			alert('There was a problem with the request. ' + httpRequest.status + httpRequest.responseText);
+		}
+	}
+}
+
+function send_with_ajax( the_url ){
+	the_url = "https://185.5.58.28:8980/RESTServiceDEMO-G/rest/GET/Server";
+	//the_url = "https://10.151.200.100:8980/RESTServiceDEMO-G/rest/GET/Server";
+	var httpRequest = new XMLHttpRequest();
+	var postData = "fisExtAnmeld%04Userid%05Kurt%06Passwort%05123%06Firma%0502%06User-sprache%05D";
+	the_url = the_url + "?filter=" + postData;
+	httpRequest.open("GET", the_url, true);
+	//httpRequest.setRequestHeader("Access-Control-Allow-Origin", "*");
+	//httpRequest.setRequestHeader("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
+	//httpRequest.setRequestHeader("Access-Control-Allow-Methods", "GET, PUT, POST");
+	httpRequest.onreadystatechange = function() { alertContents(httpRequest); };
+	httpRequest.send(null);
+}
+</script>
+<head>
+<title></title>
+</head>
+<body>
+<form>
+<input type="button" value="Send request"
+onClick="send_with_ajax('http://myhost:8980/RESTTestService/static/auth/login.html');">
+</form>
+</body>
+</html>

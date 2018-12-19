@@ -1,0 +1,23 @@
+﻿.header-review.ui-grid-b .ui-block-a { width: 53%; }
+.header-review.ui-grid-b .ui-block-b { width: 22%; }
+.header-review.ui-grid-b .ui-block-c { width: 25%; }
+
+.task-time { color: blue; }
+.rapp-date.ui-input-text {width:98px;}
+.rapp-time.ui-input-text {width:53px}
+.ui-li-icon.ui-li-thumb {max-height: 40px; max-width:40px;}
+.nav-glyphish .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+.nav-glyphish .ui-btn .ui-icon {width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; }
+.call .ui-icon-custom { background:  url(../icons/75-phone.png) 50% 50% no-repeat; background-size: 24px 24px; }
+.message .ui-icon { background:  url(../icons/09-chat-2.png) 50% 50% no-repeat; background-size: 24px 22px;  }
+.mail .ui-icon { background:  url(../icons/18-envelope.png) 50% 50% no-repeat;  background-size: 24px 16px;}
+.map .ui-icon { background:  url(../icons/103-map.png) 50% 50% no-repeat;  background-size: 26px 21px; }
+.chart .ui-icon { background:  url(../icons/17-bar-chart.png) 50% 50% no-repeat;  background-size: 30px 24px; }
+.chart { width:70px;margin-left:5px }
+.email .ui-icon { background:  url(../icons/mitteilung.png) 50% 50% no-repeat;  background-size: 24px 16px;}
+
+.rapp-closed {background:#999999}
+
+.table-stroke thead th {border-bottom: 5px solid rgba(2, 120, 160, 0.2);}
+.table-stroke tbody td {border-bottom: 5px solid rgba(2, 120, 160, .05);}
+.umsatz {font:18px Courier New}

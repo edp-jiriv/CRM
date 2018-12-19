@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">  
+<html>  
+<head>  
+    <script src="./jqm/jquery-1.7.1.min.js"></script> 
+    <script type="text/javascript">  
+        $(document).ready(function(){
+			$('#getData').click(function(){
+				message = "filter=fisExtAnmeld%04Userid%05Kurt%06Passwort%05123%06Firma%0502%06User-sprache%05D";
+				alert(message);
+				var urlREST = "https://185.5.58.28:8980/RESTServiceDEMO-G/rest/GET/Server";
+				//var urlREST = "https://10.151.200.100:8980/RESTServiceENTW-P/rest/POST/Server";
+				//var urlREST = "http://localhost:8080/DataJson/JsonServlet";
+                $.ajax({  
+                    url:urlREST,  
+                    type:'get',  
+					contentType: "application/json",
+                    dataType: 'json',
+					data: message,
+                    success: function(data) {
+						alert(JSON.stringify(data));
+					},
+					error: function(e) {alert("error");}  
+                });  
+            });  
+        });  
+    </script>  
+</head>  
+<body>  
+        <input type="button" id="getData" value="Get Data"/>   
+</body>  
+</html>  

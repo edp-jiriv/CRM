@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">  
+<html>  
+<head>  
+    <script src="./jqm/jquery-1.7.1.min.js"></script> 
+    <script type="text/javascript">  
+        $(document).ready(function(){
+			var chr3 = String.fromCharCode(3);
+			var chr4 = String.fromCharCode(4);
+			var chr5 = String.fromCharCode(5);
+			var chr6 = String.fromCharCode(6);
+			var chr7 = String.fromCharCode(7);
+			var chr8 = String.fromCharCode(8);
+			var chr9 = String.fromCharCode(9);
+			var chr10 = String.fromCharCode(10);
+			var chr13 = String.fromCharCode(13);
+
+			message = "fisExtAnmeld" + chr4 + "Userid" + chr5 + "Kurt" + chr6 + "Passwort" + chr5 + "123" + chr6 +
+					  "Firma" + chr5 + "2" + chr6 + "User-sprache" + chr5 + "D";
+			message = message.replace(new RegExp(chr3, 'g'), '%03');
+			message = message.replace(new RegExp(chr4, 'g'), '%04');
+			message = message.replace(new RegExp(chr5, 'g'), '%05');
+			message = message.replace(new RegExp(chr6, 'g'), '%06');
+			message = message.replace(new RegExp(chr7, 'g'), '%07');
+			message = message.replace(new RegExp(chr8, 'g'), '%08');
+			message = message.replace(new RegExp(chr9, 'g'), '%09');
+			message = message.replace(new RegExp(chr10, 'g'), '%10');
+			message = message.replace(new RegExp(chr13, 'g'), '%13');
+			alert(message);
+			$('#getData').click(function(){
+				message = '{"request":{"filter":"' + message + '"}}';
+				var urlREST = "https://185.5.58.28:8980/RESTServiceENTW-P/rest/POST/Server";
+				//var urlREST = "https://10.151.200.100:8980/RESTServiceENTW-P/rest/POST/Server";
+				//var urlREST = "http://localhost:8080/DataJson/JsonServlet";
+                $.ajax({  
+                    url:urlREST,  
+                    type:'post',  
+					contentType: "application/json",
+                    dataType: 'json',
+					data: message,
+                    success: function(data) {
+						alert(JSON.stringify(data));
+					},
+					error: function(e) {alert("error");}  
+                });  
+            });  
+        });  
+    </script>  
+</head>  
+<body>  
+        <input type="button" id="getData" value="Get Data"/>   
+</body>  
+</html>  
